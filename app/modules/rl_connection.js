@@ -1,13 +1,13 @@
 export class RlConnection {
 
-  constructor() {
-
+  constructor(port) {
+    this.port = port;
   }
 
   connect() {
     this.isReconnecting = false;
     console.log("[RL] Connecting...");
-    this.connection = new WebSocket("ws://127.0.0.1:49122");
+    this.connection = new WebSocket("ws://127.0.0.1:" + this.port);
     this.connection.onopen = () => {
       console.log("[RL] Connected!");
       if(this.onConnectHandler) {
@@ -32,10 +32,8 @@ export class RlConnection {
         data = atob(data);
       }
       data = JSON.parse(data);
-      if(data['event'] === 'game:update_state') {
-        if(this.onStateUpdateHandler) {
-          this.onStateUpdateHandler(data['data']);
-        }
+      if(this.onStateUpdateHandler) {
+        this.onStateUpdateHandler(data);
       }
     }
   }

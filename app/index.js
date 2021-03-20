@@ -21,6 +21,9 @@ let currentOptions = DEFAULT_OPTIONS;
 let muted = false;
 let isHost = false;
 
+//Make this accessible through a configuration interface
+let rl_port = 49124;
+
 export let toggleMute;
 
 $(document).ready(() => {
@@ -122,7 +125,7 @@ $(document).ready(() => {
   });
 
 
-  rlConnection = new RlConnection();
+  rlConnection = new RlConnection(rl_port);
   rlConnection.onConnect(() => {
     $statusRlIcon.removeClass("red-text");
     $statusRlText.removeClass("red-text");
@@ -148,7 +151,7 @@ $(document).ready(() => {
     Object.values(peerConnections).forEach(peer => {
 
       let found = false;
-      for(let pos of Object.values(posData)) {
+      for(let pos of posData) {
         if(pos.id === peer.playerId) {
           found = true;
           peer.setPosition(pos.x, pos.y, pos.z);
