@@ -5,7 +5,6 @@ const store = new Store({defaults: {'hotkeyMute': "Ctrl+M"}});
 
 //Init Electron App
 let mainWindow;
-let closing = false;
 
 if (!gotTheLock) {
   app.quit();
