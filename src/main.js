@@ -7,7 +7,7 @@ const store = new Store({defaults: {'hotkeyMute': "Ctrl+M"}});
 let mainWindow;
 let closing = false;
 
-if (!gotTheLock && false) {
+if (!gotTheLock) {
   app.quit();
 } else {
 
