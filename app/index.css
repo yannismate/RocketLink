@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+#segment_status {
+    font-size: 20px;
+}
+
+.btn {
+    height: 28px !important;
+    line-height: 28px !important;
+    padding: 0 1rem !important;
+    font-size: 1rem !important;
+}
+
+.input-field {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+input {
+    color: white;
+}
+
+.caret {
+    fill: white !important;
+}
+
+.dropdown-content li>span {
+    font-size: 12px !important;
+    line-height: 14px !important;
+}
+
+.dropdown-content {
+    background-color: #2f2f2f !important;
+    color: white !important;
+}
+
+.player {
+    margin-bottom: 4px;
+}
+
+.player-name {
+    display: inline;
+    margin-right: 20px;
+}

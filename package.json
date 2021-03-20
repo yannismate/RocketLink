@@ -1,0 +1,22 @@
+{
+  "name": "rocketlink",
+  "version": "1.0.0",
+  "description": "Proximity voice chat client for RocketLeague",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron --inspect .",
+    "package": "electron-packager . RocketLink --platform=win32 --arch=x64 --out=dist/ --ignore=\"(build-installer\\.js|\\.idea)\" --prune=true --overwrite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Yannis Matezki",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "electron": "^11.3.0",
+    "electron-packager": "^15.2.0",
+    "electron-winstaller": "^5.0.0"
+  },
+  "dependencies": {
+    "electron-store": "^7.0.2"
+  }
+}

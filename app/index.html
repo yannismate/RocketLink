@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+  <link rel="stylesheet" href="index.css"/>
+  <script src="dependencies/jquery-3.6.0.min.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="dependencies/materialize.min.css">
+  <script src="dependencies/materialize.min.js" type="text/javascript"></script>
+  <script src="dependencies/socket.io.min.js" type="text/javascript"></script>
+  <script src="dependencies/simplepeer.min.js" type="text/javascript"></script>
+  <script src="modules/rl_connection.js" type="module"></script>
+  <script src="modules/voice_connection.js" type="module"></script>
+  <script src="modules/peer_connection.js" type="module"></script>
+  <script src="index.js" type="module"></script>
+</head>
+<body class="grey darken-4">
+
+<main>
+  <div class="container white-text">
+
+    <div id="segment_status" style="padding-top: 15px;">
+      <div class="row" style="margin-bottom: 0">
+        <div class="col s6">RocketLeague</div>
+        <div id="status_rl_icon" class="col s1 red-text">⬤</div>
+        <div id="status_rl_text" class="col s5 red-text">Disconnected</div>
+      </div>
+      <div class="row">
+        <div class="col s6">Voice</div>
+        <div id="status_voice_icon" class="col s1 red-text">⬤</div>
+        <div id="status_voice_text" class="col s5 red-text">Disconnected</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="segment_voice_connect" style="padding-top: 15px;">
+      <div class="row">
+        <div class="col s6 valign-wrapper"><p>Voice server:</p></div>
+        <div class="col s6">
+          <input type="text" id="input_voice_server" style="margin-bottom: 0">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6">
+          <a id="button_voice_connect" class="btn green darken-3 waves-effect waves-light">Connect</a>
+        </div>
+        <div class="col s6">
+          <a id="button_voice_disconnect" class="btn deep-orange darken-4 waves-effect waves-light disabled">Disconnect</a>
+        </div>
+      </div>
+
+      <div class="row"  style="margin-bottom: 0">
+        <div class="col s6 valign-wrapper"><p>Room:</p></div>
+        <div class="col s6">
+          <input type="text" id="input_room" style="margin-bottom: 0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6 valign-wrapper"><p>Password:</p></div>
+        <div class="col s6">
+          <input type="password" id="input_password" style="margin-bottom: 0">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s3">
+          <a id="button_room_join" class="btn green darken-3 waves-effect waves-light disabled">Join</a>
+        </div>
+        <div class="col s3">
+          <a id="button_room_host" class="btn green darken-3 waves-effect waves-light disabled">Host</a>
+        </div>
+        <div class="col s3">
+          <a id="button_room_leave" class="btn deep-orange darken-4 waves-effect waves-light disabled">Leave</a>
+        </div>
+        <div class="col s3">
+          <a id="button_room_options" class="btn indigo darken-2 waves-effect waves-light disabled">Options</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="segment_voice_settings" style="padding-top: 15px;">
+      <div class="row" style="margin-bottom: 0">
+        <div class="col s3 valign-wrapper"><p>Input:</p></div>
+        <div class="col s9 input-field">
+          <select id="input_voice_input">
+            <option value="default" selected>Default</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col s3 valign-wrapper"><p>Output:</p></div>
+        <div class="col s9 input-field">
+          <select id="input_voice_output">
+            <option value="default" selected>Default</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6"><div id="button_mute" class="btn green darken-3 waves-effect waves-light"><i class="material-icons left">mic</i>Mute</div></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div id="segment_player_list" style="padding-top: 15px;">
+      <div class="row">
+        <div id="text_player_list_header">Players (0):</div>
+      </div>
+      <div class="row" id="player_container">
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div id="modal_lobby_options" class="modal">
+    <div class="modal-content">
+      <p>Distance before rolloff:</p>
+      <input type="number" id="input_options_mindistance" style="margin-bottom: 0; color: black;">
+      <p>Max. Distance:</p>
+      <input type="number" id="input_options_maxdistance" style="margin-bottom: 0; color: black;">
+      <p>Rolloff factor:</p>
+      <input type="number" id="input_options_rollofffactor" style="margin-bottom: 0; color: black;">
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect deep-orange darken-4 white-text btn-flat">Cancel</a>
+      <a id="button_modal_options_apply" href="#!" class="modal-close waves-effect green darken-3 white-text btn-flat">Apply</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="white-text">
+  <div class="footer-copyright">
+    <div class="container" style="margin-bottom: 4px">
+      made by yannismate
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

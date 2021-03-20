@@ -1,0 +1,27 @@
+name: electron-packager
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Clone this repo
+      uses: actions/checkout@v2
+    
+    - name: Setting up node
+      uses: actions/setup-node@v2
+    
+    - name: Installing Dependencies
+      run: npm install
+    
+    - name: Packaging using electron-packager
+      run: npm run package
+      
+    - name: Upload packaged electron app
+      uses: actions/upload-artifact@v2
+      with:
+        name: RocketLink
+        path: dist/RocketLink-win32-x64/
