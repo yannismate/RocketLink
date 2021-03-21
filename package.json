@@ -5,7 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron --inspect .",
-    "package": "electron-packager . RocketLink --platform=win32 --arch=x64 --out=dist/ --ignore=\"(build-installer\\.js|\\.idea)\" --prune=true --overwrite",
+    "package": "electron-packager . RocketLink --platform=win32 --arch=x64 --out=dist/ --icon=icon.ico --ignore=\"(build-installer\\.js|\\.idea)\" --prune=true --overwrite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

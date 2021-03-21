@@ -20,8 +20,10 @@ if (!gotTheLock) {
         nodeIntegration: false,
         contextIsolation: true
       },
-      title: "RocketLink " + app.getVersion()
+      title: "RocketLink " + app.getVersion(),
+      icon: __dirname + "/../icon.ico"
     });
+    
 
     globalShortcut.register('Ctrl+Shift+I', () => {
       mainWindow.webContents.openDevTools();
