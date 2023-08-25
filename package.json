@@ -1,6 +1,6 @@
 {
   "name": "rocketlink",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Proximity voice chat client for RocketLeague",
   "main": "src/main.js",
   "scripts": {
@@ -12,11 +12,11 @@
   "author": "Yannis Matezki",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "electron": "^11.3.0",
-    "electron-packager": "^15.2.0",
-    "electron-winstaller": "^5.0.0"
+    "electron": "26.1.0",
+    "electron-packager": "^17.1.2",
+    "electron-winstaller": "^5.1.0"
   },
   "dependencies": {
-    "electron-store": "^7.0.2"
+    "electron-store": "^8.1.0"
   }
 }
